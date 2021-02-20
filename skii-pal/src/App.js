@@ -2,6 +2,7 @@ import React, { useEffect, lazy, Suspense } from 'react';
 import { Switch, Route} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+import Navbar from './components/Navbar';
 
 import { selectCurrentUser } from './redux/user/user.selectors';
 import { checkUserSession } from './redux/user/user.actions';
@@ -10,7 +11,7 @@ import { checkUserSession } from './redux/user/user.actions';
 
 import "./App.css";
 
-const HomePage = lazy(() => import('./pages/homepage/homepage.component'));
+const Home = lazy(() => import('./components/pages/Home'));
 
 const App = ({ checkUserSession, currentUser }) => {
   useEffect(() => {
@@ -19,9 +20,14 @@ const App = ({ checkUserSession, currentUser }) => {
 
   return (
     <div>
+      <Navbar />
       <Switch>
           <Suspense fallback={<div />}>
-            <Route exact path='/' component={HomePage} />
+            <Route path='/' exact component={Home} />
+            {/* <Route path='/services' component={Services} />
+            <Route path='/products' component={Products} />
+            <Route path='/sign-up' component={SignUp} /> */}
+            {/* <Route exact path='/' component={HomePage} /> */}
           </Suspense>
       </Switch>
     </div>
