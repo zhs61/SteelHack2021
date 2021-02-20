@@ -10,23 +10,17 @@
   z-index: 999;
 }
 
-/* .navbar-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 80px;
-  max-width: 1500px;
-} */
-
 .navbar-logo {
   color: #fff;
-  justify-self: start;
   margin-left: 20px;
   cursor: pointer;
   text-decoration: none;
   font-size: 2rem;
   display: flex;
-  align-items: center;
+}
+
+.navbar-logo:hover {
+  text-decoration: none;
 }
 
 .fa-typo3 {
@@ -119,6 +113,7 @@
     top: 0;
     left: 0;
     transform: translate(25%, 50%);
+    text-decoration: none;
   }
 
   .menu-icon {

@@ -11,6 +11,7 @@ import "./App.css";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import { AuthProvider } from "./contexts/AuthContext";
+import Profile from "./components/pages/Profile";
 
 const Home = lazy(() => import("./components/pages/Home"));
 
@@ -21,13 +22,14 @@ const App = ({ checkUserSession, currentUser }) => {
 
   return (
     <div>
-      <Navbar />
       <AuthProvider>
+        <Navbar />
         <Switch>
           <Suspense fallback={<div />}>
             <Route path="/" exact component={Home} />
             <Route path="/signup" component={Signup} />
             <Route path="/login" component={Login} />
+            <Route path="/profile" component={Profile} />
           </Suspense>
         </Switch>
       </AuthProvider>
