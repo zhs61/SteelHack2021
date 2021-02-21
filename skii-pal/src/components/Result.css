@@ -71,6 +71,13 @@ h4 a {
     min-height: 0;
     padding: 0 10px 10px 10px;
   }
+
+  .controls{
+    display: 'flex';
+    align-items: 'center';
+    padding:20px
+  }
+
   .icon {
     position: relative;
     bottom: 27px;

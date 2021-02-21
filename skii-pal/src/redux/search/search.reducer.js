@@ -1,3 +1,6 @@
+import fakeResults from './fakeResults';
+
+
 export const queryReducer = (state = {"date": '', "location": ''}, action) => {
     switch (action.type) {
       case 'SET_QUERY':
@@ -29,7 +32,7 @@ export const queryReducer = (state = {"date": '', "location": ''}, action) => {
     }
   };
 
-export const resultsReducer = (state = '', action) => {
+export const resultsReducer = (state = fakeResults, action) => {
   switch (action.type) {
     case 'SEND_RESULTS':
       return !!state === true ? state.concat(action.payload) : action.payload;

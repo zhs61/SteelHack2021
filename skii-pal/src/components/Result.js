@@ -5,7 +5,7 @@ import "./Result.css";
 import { outline } from "../redux/search/search.actions";
 import imgLoader from "../assets/imgLoader.gif";
 import MoreIcon from "@material-ui/icons/More";
-
+import EventAvailableIcon from '@material-ui/icons/EventAvailable';
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -36,24 +36,17 @@ export const Result = ({ data, screenshots }) => (
           {data.SKI_group_name}
         </a>
       </h4>
+        <div className="card-body" onClick={() => outline(data)}>
+            <h4 className="title">
+                <a className="ext-link" target="_blank" href='#'>
+                    {data.SKI_group_name}
+                </a>
+            </h4>
+            <p>{data.summary.substring(0, 200) + '...'}</p>
+            <div className='bottom'>
+                <EventAvailableIcon />
+                <p style={{color:'#A9A9A9', marginLeft: '15px'}}>{new Date(data.resgistration_date).toDateString()}</p>
+            </div>
+        </div>
     </div>
-  </div>
-
-  // <Card className='root'>
-  //     <div className='details'>
-  //         <CardMedia
-  //             className='cover'
-  //             image= {data.Image}
-  //             title= {data.location}
-  //         />
-  //         <CardContent className='content'>
-  //             <Typography component="h5" variant="h5">
-  //                 {data.SKI_group_name}
-  //             </Typography>
-  //         </CardContent>
-  //         <div className='bottom'>
-  //             <MoreIcon />
-  //         </div>
-  //     </div>
-  // </Card>
 );

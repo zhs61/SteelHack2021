@@ -37,7 +37,7 @@ export const search = (reset) => {
 const filter_data = () =>{
   const {date, location} = store.getState().query
   let date_1 = new Date(date).toDateString()
-  return fakeResults.filter(item => item.city.search(location) >= 0
+  return fakeResults.filter(item => item.city.toUpperCase().search(location.toUpperCase()) >= 0
     && date_1 == new Date(item.resgistration_date).toDateString());
 }
 const screenGrab = () => {
@@ -79,9 +79,10 @@ export const nextPage = () => {
   });
 };
 
-export const outline = (site) => {
+export const outline = (data) => {
   store.dispatch((dispatch) => {
     dispatch({ type: 'OUTLINE_LOADING' });
-    axios.post(`/outline/${site}`).then(res => dispatch({ type: 'OUTLINE', payload: res.data }));
+    dispatch({ type: 'OUTLINE', payload: data })
+    // axios.post(`/outline/${site}`).then(res => dispatch({ type: 'OUTLINE', payload: res.data }));
   });
 };
