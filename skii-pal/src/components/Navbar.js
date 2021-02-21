@@ -43,7 +43,7 @@ function Navbar() {
     <nav className="navbar">
       {/* <div style={{ display: "flex", justifyContent: "center" }}> */}
       <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-        SKI
+        SKIClub
         <i className="fas fa-skiing" />
       </Link>
       {/* </div> */}
