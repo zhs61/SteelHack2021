@@ -5,6 +5,7 @@ import "./Navbar.css";
 import { useSelector } from "react-redux";
 import { useAuth } from "../contexts/AuthContext";
 
+
 function Navbar() {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
@@ -43,8 +44,7 @@ function Navbar() {
     <nav className="navbar">
       {/* <div style={{ display: "flex", justifyContent: "center" }}> */}
       <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-        SKIClub
-        <i className="fas fa-skiing" />
+        <img src= 'SKIClub.jpeg' style={{width:'80px', height:"80px"}}></img>
       </Link>
       {/* </div> */}
       {/* <div className="menu-icon" onClick={handleClick}>
