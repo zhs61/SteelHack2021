@@ -48,7 +48,7 @@ export const Result = ({ data, screenshots }) => {
     return (
         <div className="card" onClick={() => outline(data)}>
             <Grid container spacing={2}>
-                <Grid item>
+                <Grid item >
                     <img className='preview' alt={data.location} src={data.Image} />
                 </Grid>
                 <Grid item xs={12} sm container>

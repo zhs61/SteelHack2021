@@ -70,7 +70,7 @@ const Outline = ({ outline }) => {
 
 
       <Button className='btns' buttonStyle='btn--submmit' color="primary" variant="contained" >
-        Payment Now
+        Join
     </Button>
 
     </div>
