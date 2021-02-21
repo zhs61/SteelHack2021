@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { Button } from "./Button";
 import { Link } from "react-router-dom";
@@ -67,7 +68,15 @@ function Navbar() {
             Search
           </Link>
         </li>
-
+      <li className='nav-item'>
+              <Link
+                to='/discussion'
+                className='nav-links'
+                onClick={closeMobileMenu}
+              >
+                Discussion
+              </Link>
+            </li>
         {currentUser ? (
           <li className="nav-item">
             <Link className="nav-links" onClick={handleLogout}>
@@ -84,6 +93,7 @@ function Navbar() {
       </ul>
       {/* {button && <Button>Log In</Button>} */}
     </nav>
+
   );
 }
 

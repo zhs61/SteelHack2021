@@ -1,3 +1,4 @@
+
 import React, { useEffect, lazy, Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
@@ -6,6 +7,7 @@ import Navbar from "./components/Navbar";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { selectCurrentUser } from "./redux/user/user.selectors";
 import { checkUserSession } from "./redux/user/user.actions";
+
 
 import "./App.css";
 import { AuthProvider } from "./contexts/AuthContext";
@@ -17,11 +19,13 @@ const Signup  = lazy(() => import( "./components/Signup"));
 const Login  = lazy(()=> import( "./components/Login"));
 const Profile = lazy(() => import( "./components/pages/Profile"));
 
+const Discussion=lazy( () => import( './components/pages/Discussion' ) );
 
-const App = ({ checkUserSession, currentUser }) => {
-  useEffect(() => {
+
+const App=( {checkUserSession, currentUser} ) => {
+  useEffect( () => {
     checkUserSession();
-  }, [checkUserSession]);
+  }, [ checkUserSession ] );
 
   return (
     <div>
@@ -34,12 +38,14 @@ const App = ({ checkUserSession, currentUser }) => {
             <Route path="/login" component={Login} />
             <PrivateRoute exact path="/profile" component={Profile} />
             <Route exact path="/search" component={Search} />
+            <Route path='/discussion' component={Discussion} />
           </Suspense>
         </Switch>
       </AuthProvider>
     </div>
   );
 };
+
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
@@ -50,3 +56,4 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
+
