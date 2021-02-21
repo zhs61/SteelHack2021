@@ -13,6 +13,8 @@ import Login from "./components/Login";
 import { AuthProvider } from "./contexts/AuthContext";
 import Profile from "./components/pages/Profile";
 
+import PrivateRoute from "./components/PrivateRoute";
+
 const Home = lazy(() => import("./components/pages/Home"));
 const Search = lazy(() => import("./components/pages/Search"));
 
@@ -30,8 +32,10 @@ const App = ({ checkUserSession, currentUser }) => {
             <Route path="/" exact component={Home} />
             <Route path="/signup" component={Signup} />
             <Route path="/login" component={Login} />
-            <Route path="/profile" component={Profile} />
-            <Route path="/Search" component={Search} />
+            {/* <Route path="/profile" component={Profile} /> */}
+            {/* <Route path="/search" component={Search} /> */}
+            <PrivateRoute exact path="/profile" component={Profile} />
+            <PrivateRoute exact path="/search" component={Search} />
           </Suspense>
         </Switch>
       </AuthProvider>
