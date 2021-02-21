@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import Navbar from "./components/Navbar";
-
+import CircularProgress from "@material-ui/core/CircularProgress";
 import { selectCurrentUser } from "./redux/user/user.selectors";
 import { checkUserSession } from "./redux/user/user.actions";
 
@@ -14,6 +14,7 @@ import { AuthProvider } from "./contexts/AuthContext";
 import Profile from "./components/pages/Profile";
 
 const Home = lazy(() => import("./components/pages/Home"));
+const Search = lazy(() => import("./components/pages/Search"));
 
 const App = ({ checkUserSession, currentUser }) => {
   useEffect(() => {
@@ -30,6 +31,7 @@ const App = ({ checkUserSession, currentUser }) => {
             <Route path="/signup" component={Signup} />
             <Route path="/login" component={Login} />
             <Route path="/profile" component={Profile} />
+            <Route path="/Search" component={Search} />
           </Suspense>
         </Switch>
       </AuthProvider>

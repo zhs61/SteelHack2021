@@ -3,7 +3,14 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 import userReducer from './user/user.reducer';
-import directoryReducer from './directory/directory.reducer';
+import {
+  counterReducer,
+  loadingStatusReducer,
+  outlineReducer,
+  queryReducer,
+  resultsReducer,
+  // screenshotsReducer
+}  from './search/search.reducer'
 
 const persistConfig = {
   key: 'root',
@@ -13,7 +20,12 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   user: userReducer,
-  directory: directoryReducer
+  results: resultsReducer,
+  loadingStatus: loadingStatusReducer,
+  outline: outlineReducer,
+  query: queryReducer,
+  counter: counterReducer
+  // screenshots: screenshotsReducer
 });
 
 export default persistReducer(persistConfig, rootReducer);
