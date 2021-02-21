@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Form, Button, Card, Alert, Col } from "react-bootstrap";
+// import { Form, Button, Card, Alert, Col } from "react-bootstrap";
+import { Card, CardContent } from "@material-ui/core";
 import CardMedia from "@material-ui/core/CardMedia";
 import { shadows } from "@material-ui/system";
 
@@ -14,7 +15,7 @@ function ProfileLeft() {
   return (
     <div>
       <Card style={{ width: "20rem", marginTop: "2rem" }} elevation={4}>
-        <Card.Body
+        <CardContent
           style={{
             display: "flex",
             flexDirection: "column",
@@ -39,7 +40,7 @@ function ProfileLeft() {
             <label style={{ marginRight: "20px" }}>Email: </label>
             {currentUser?.email || "PlaceHolder@pl.com"}
           </div>
-        </Card.Body>
+        </CardContent>
       </Card>
     </div>
   );

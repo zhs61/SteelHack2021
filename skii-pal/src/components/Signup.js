@@ -1,5 +1,8 @@
 import React, { useRef, useState } from "react";
-import { Form, Button, Card, Alert } from "react-bootstrap";
+import { Button, Card, FormLabel, Input } from "@material-ui/core";
+import CardContent from "@material-ui/core/CardContent";
+import Alert from "@material-ui/lab/Alert";
+import { FormControl } from "@material-ui/core";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 
@@ -36,27 +39,44 @@ export default function Signup() {
       style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
     >
       <Card style={{ width: "28rem", marginTop: "2rem" }}>
-        <Card.Body>
-          <h2 className="text-center mb-4">Sign Up</h2>
+        <CardContent
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <h2>Sign Up</h2>
           {error && <Alert variant="danger">{error}</Alert>}
-          <Form onSubmit={handleSubmit}>
-            <Form.Group id="email">
-              <Form.Label>Email</Form.Label>
-              <Form.Control type="email" ref={emailRef} required />
-            </Form.Group>
-            <Form.Group id="password">
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" ref={passwordRef} required />
-            </Form.Group>
-            <Form.Group id="password-confirm">
-              <Form.Label>Password Confirmation</Form.Label>
-              <Form.Control type="password" ref={passwordConfirmRef} required />
-            </Form.Group>
-            <Button disabled={loading} className="w-100" type="submit">
+          <FormControl onSubmit={handleSubmit} style={{ display: "flex" }}>
+            <FormLabel>Email</FormLabel>
+            <Input type="email" inputRef={emailRef} required />
+          </FormControl>
+          <FormControl onSubmit={handleSubmit} style={{ display: "flex" }}>
+            <FormLabel style={{ paddingTop: "10px " }}>Password</FormLabel>
+            <Input type="password" inputRef={passwordRef} required />
+          </FormControl>
+          <FormControl onSubmit={handleSubmit} style={{ display: "flex" }}>
+            <FormLabel style={{ paddingTop: "10px " }}>
+              Password Confirm
+            </FormLabel>
+            <Input type="password" inputRef={passwordConfirmRef} required />
+          </FormControl>
+          <div style={{ paddingTop: "10px", paddingBottom: "10px" }}>
+            <Button
+              variant="contained"
+              color="primary"
+              style={{ width: "100%" }}
+              onClick={handleSubmit}
+            >
               Sign Up
             </Button>
-          </Form>
-        </Card.Body>
+          </div>
+
+          {/* <div className="w-100 text-center mt-3">
+            <Link to="/forgot-password">Forgot Password?</Link>
+          </div> */}
+        </CardContent>
       </Card>
       <div className="w-100 text-center mt-2">
         Already have an account? <Link to="/login">Log In</Link>
