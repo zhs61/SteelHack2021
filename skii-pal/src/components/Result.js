@@ -13,17 +13,17 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 
 
 const resolveImage = (pagemap, link, screenshots) => {
-    if (pagemap && pagemap.cse_image) {
-        const [{ src }] = pagemap.cse_image;
-        return src;
-    } else {
-        for (let i = 0; i < screenshots.length; i++) {
-            if (screenshots[i].link === link) {
-                return screenshots[i].screenshot;
-            }
-        }
-        return imgLoader;
+  if (pagemap && pagemap.cse_image) {
+    const [{ src }] = pagemap.cse_image;
+    return src;
+  } else {
+    for (let i = 0; i < screenshots.length; i++) {
+      if (screenshots[i].link === link) {
+        return screenshots[i].screenshot;
+      }
     }
+    return imgLoader;
+  }
 };
 
 export const Result = ({ data, screenshots }) => {
@@ -48,7 +48,7 @@ export const Result = ({ data, screenshots }) => {
     const countClass = data.array_of_user_id.length >= 5? "green":"red"
 
     return (
-        <div className="card">
+        <div className="card" onClick={() => outline(data)}>
             <Grid container spacing={2}>
                 <Grid item>
                     <img className='preview' alt={data.location} src={data.Image} />
