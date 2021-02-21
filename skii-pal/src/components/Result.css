@@ -35,8 +35,10 @@ h4 a {
     overflow: hidden;
   }
   .title {
-    color: #ffa500;
+    color: #4791db;
     max-width: 22vw;
+    font-size: large;
+    font-weight: 800;
     text-overflow: ellipsis;
     overflow: hidden;
   }
@@ -72,10 +74,18 @@ h4 a {
     padding: 0 10px 10px 10px;
   }
 
-  .controls{
+  .green {
+    color: green;
+  }
+
+  .red{
+    color: red;
+  }
+
+  .bottom{
     display: 'flex';
     align-items: 'center';
-    padding:20px
+    padding: 0px
   }
 
   .icon {

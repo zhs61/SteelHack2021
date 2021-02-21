@@ -23,11 +23,11 @@ import { search, handleKey, setQuery } from '../redux/search/search.actions'
 
 const SearchBox = ({ query }) => {
 
-  const [selectedDate, setSelectedDate] = React.useState(new Date('2021-02-20T21:11:54'));
+  const [selectedDate, setSelectedDate] = React.useState(new Date());
   const [location, setLocation] = React.useState('');
 
   const handleDateChange = (date) => {
-    setSelectedDate(date);
+    setSelectedDate(new Date(date).toLocaleDateString());
   };
 
   const handleLocationChange = (event) => {

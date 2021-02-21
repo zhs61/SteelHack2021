@@ -36,10 +36,21 @@ export const search = (reset) => {
 
 const filter_data = () =>{
   const {date, location} = store.getState().query
-  let date_1 = new Date(date).toDateString()
-  return fakeResults.filter(item => item.city.toUpperCase().search(location.toUpperCase()) >= 0
-    && date_1 == new Date(item.resgistration_date).toDateString());
-}
+  let temp = fakeResults
+
+  if(date != ''){
+    console.log(date)
+    temp = temp.filter(item => date == new Date(item.resgistration_date + "T" + item.start_time).toLocaleDateString())
+  }
+
+
+  if (location != ''){
+    temp = temp.filter(item => item.city.toUpperCase().search(location.toUpperCase()) >= 0)
+  }
+
+  return temp;
+};
+
 const screenGrab = () => {
   const arr = [];
   const results = store.getState().results;
