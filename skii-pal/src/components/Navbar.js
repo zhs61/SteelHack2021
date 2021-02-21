@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from "react";
-import { Button } from "./Button";
-import { Link } from "react-router-dom";
+import React, {useState, useEffect} from "react";
+import {Button} from "./Button";
+import {Link} from "react-router-dom";
 import "./Navbar.css";
-import { useSelector } from "react-redux";
-import { useAuth } from "../contexts/AuthContext";
+import {useSelector} from "react-redux";
+import {useAuth} from "../contexts/AuthContext";
 
 
 function Navbar() {
-  const [click, setClick] = useState(false);
-  const [button, setButton] = useState(true);
-  const [error, setError] = useState("");
+  const [ click, setClick ]=useState( false );
+  const [ button, setButton ]=useState( true );
+  const [ error, setError ]=useState( "" );
 
-  const handleClick = () => setClick(!click);
-  const closeMobileMenu = () => setClick(false);
-  const { currentUser, logout } = useAuth();
+  const handleClick=() => setClick( !click );
+  const closeMobileMenu=() => setClick( false );
+  const {currentUser, logout}=useAuth();
   // const currentUser = useSelector((state) => state.user.currentUser);
   // const showButton = () => {
   //   if (window.innerWidth <= 960) {
@@ -30,13 +30,13 @@ function Navbar() {
   // window.addEventListener("resize", showButton);
 
   async function handleLogout() {
-    setError("");
+    setError( "" );
 
     try {
       await logout();
       // history.push("/login");
     } catch {
-      setError("Failed to log out");
+      setError( "Failed to log out" );
     }
   }
 
@@ -44,19 +44,20 @@ function Navbar() {
     <nav className="navbar">
       {/* <div style={{ display: "flex", justifyContent: "center" }}> */}
       <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-        <img src= 'SKIClub.jpeg' style={{width:'80px', height:"80px"}}></img>
+        <img src='SKIClub.jpeg' style={{width: '80px', height: "80px"}}></img>
       </Link>
       {/* </div> */}
       {/* <div className="menu-icon" onClick={handleClick}>
           <i className={click ? "fas fa-times" : "fas fa-bars"} />
         </div> */}
       {/* </div> */}
-      <ul className={click ? "nav-menu active" : "nav-menu"}>
+      <ul className={click? "nav-menu active":"nav-menu"}>
         <li className="nav-item">
           <Link to="/" className="nav-links" onClick={closeMobileMenu}>
             Home
           </Link>
         </li>
+
         <li className="nav-item">
           <Link to="/profile" className="nav-links" onClick={closeMobileMenu}>
             Profile
@@ -67,20 +68,25 @@ function Navbar() {
             Search
           </Link>
         </li>
+        <li className="nav-item">
+          <Link to="/discussion" className="nav-links" onClick={closeMobileMenu}>
+            Discussion
+          </Link>
+        </li>
 
-        {currentUser ? (
+        {currentUser? (
           <li className="nav-item">
             <Link className="nav-links" onClick={handleLogout}>
               Log Out
             </Link>
           </li>
-        ) : (
-          <li className="nav-item">
-            <Link to="/login" className="nav-links" onClick={closeMobileMenu}>
-              Log In
+        ):(
+            <li className="nav-item">
+              <Link to="/login" className="nav-links" onClick={closeMobileMenu}>
+                Log In
             </Link>
-          </li>
-        )}
+            </li>
+          )}
       </ul>
       {/* {button && <Button>Log In</Button>} */}
     </nav>
