@@ -40,7 +40,7 @@ const SearchBox = ({ query }) => {
   };
 
   return (
-    <Grid container justify="space-around" style= {{margin: '20px 0px'}}>
+    <Grid container justify="space-around" style= {{margin: '30px 0px'}}>
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
         <KeyboardDatePicker
           id="date-picker-dialog"
