@@ -1,11 +1,7 @@
 import * as React from 'react';
-import * as InfiniteScroll from 'react-infinite-scroll-component';
 import { Result } from './Result';
-import { nextPage } from '../redux/search/search.actions'
-import no_item from '../assets/no_item.png'
 import './ResultList.css'
 
-import Grid from '@material-ui/core/Grid';
 
 
 const ResultsList = ({ results, screenshots }) => {

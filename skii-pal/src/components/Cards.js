@@ -13,13 +13,13 @@ function Cards() {
               src='images/img-1.jpg'
               text='No.1 Blue Knob All Season Resort'
               label='Adventure'
-              path='/services'
+              path="https://blueknob.com/"
             />
             <CardItem
               src='images/img-2.jpg'
               text='No.2 Seven Springs Mountain Resort'
               label='Beatiful Snow View'
-              path='/services'
+              path="https://www.7springs.com/?utm_source=ODMG&utm_medium=Search&utm_campaign=Branded"
             />
           </ul>
           <ul className='cards__items'>
@@ -27,19 +27,19 @@ function Cards() {
               src='images/img-3.jpg'
               text='No.3 Mystic Mountain'
               label='Mystery'
-              path='/services'
+              path="https://www.nemacolin.com/experiences/mystic-mountain/"
             />
             <CardItem
               src='images/img-4.jpg'
               text='No.4 Hidden Valley'
               label='Adventure'
-              path='/products'
+              path="https://www.hiddenvalleyski.com/?ef_id=CjwKCAiAg8OBBhA8EiwAlKw3kuw6vKDcDxrdxlFUx88Jrfu30WLGXzH41EBUmvuwyAyp_Ho1rNJzXRoCzRcQAvD_BwE:G:s&s_kwcid=AL!11600!3!498746840055!e!!g!!hidden%20valley%20resort%20missouri!11504710487!110939217303&CMPID=PPC&gclid=CjwKCAiAg8OBBhA8EiwAlKw3kuw6vKDcDxrdxlFUx88Jrfu30WLGXzH41EBUmvuwyAyp_Ho1rNJzXRoCzRcQAvD_BwE"
             />
             <CardItem
               src='images/img-5.jpg'
               text='No.5 Laurel Mountain'
               label='Family Time'
-              path='/http://www.laurelmountainski.com'
+              path="http://www.laurelmountainski.com/"
             />
           </ul>
         </div>
