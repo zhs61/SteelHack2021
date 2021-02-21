@@ -1,5 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { auth } from "../firebase";
+import { useDispatch } from "react-redux";
+import { signInSuccess } from "../redux/user/user.actions";
 
 const AuthContext = React.createContext();
 
@@ -10,6 +12,7 @@ export function useAuth() {
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState();
   const [loading, setLoading] = useState(true);
+  const dispatch = useDispatch();
 
   function signup(email, password) {
     return auth.createUserWithEmailAndPassword(email, password);
@@ -23,21 +26,11 @@ export function AuthProvider({ children }) {
     return auth.signOut();
   }
 
-  // function resetPassword(email) {
-  //   return auth.sendPasswordResetEmail(email);
-  // }
-
-  // function updateEmail(email) {
-  //   return currentUser.updateEmail(email);
-  // }
-
-  // function updatePassword(password) {
-  //   return currentUser.updatePassword(password);
-  // }
-
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
+      console.log("The current use is ", user);
       setCurrentUser(user);
+      dispatch(signInSuccess(user));
       setLoading(false);
     });
 
