@@ -1,30 +1,10 @@
 import * as React from 'react';
 import 'rc-tooltip/assets/bootstrap_white.css';
 import './Result.css';
-import { outline } from '../redux/search/search.actions'
 import imgLoader from '../assets/imgLoader.gif';
-import EventAvailableIcon from '@material-ui/icons/EventAvailable';
-
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import ButtonBase from '@material-ui/core/ButtonBase';
 
-
-
-const resolveImage = (pagemap, link, screenshots) => {
-    if (pagemap && pagemap.cse_image) {
-        const [{ src }] = pagemap.cse_image;
-        return src;
-    } else {
-        for (let i = 0; i < screenshots.length; i++) {
-            if (screenshots[i].link === link) {
-                return screenshots[i].screenshot;
-            }
-        }
-        return imgLoader;
-    }
-};
 
 export const Result = ({ data, screenshots }) => {
     // <div className="card">
