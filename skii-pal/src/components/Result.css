@@ -9,7 +9,7 @@ h4 a:hover {
 h4 a:visited {
   color: #962a00;
 }
-.card1 {
+.card {
   display: flex;
   position: relative;
   height: 174px;

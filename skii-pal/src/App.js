@@ -8,15 +8,15 @@ import { selectCurrentUser } from "./redux/user/user.selectors";
 import { checkUserSession } from "./redux/user/user.actions";
 
 import "./App.css";
-import Signup from "./components/Signup";
-import Login from "./components/Login";
 import { AuthProvider } from "./contexts/AuthContext";
-import Profile from "./components/pages/Profile";
-
 import PrivateRoute from "./components/PrivateRoute";
 
 const Home = lazy(() => import("./components/pages/Home"));
 const Search = lazy(() => import("./components/pages/Search"));
+const Signup  = lazy(() => import( "./components/Signup"));
+const Login  = lazy(()=> import( "./components/Login"));
+const Profile = lazy(() => import( "./components/pages/Profile"));
+
 
 const App = ({ checkUserSession, currentUser }) => {
   useEffect(() => {
@@ -32,10 +32,8 @@ const App = ({ checkUserSession, currentUser }) => {
             <Route path="/" exact component={Home} />
             <Route path="/signup" component={Signup} />
             <Route path="/login" component={Login} />
-            {/* <Route path="/profile" component={Profile} /> */}
-            {/* <Route path="/search" component={Search} /> */}
             <PrivateRoute exact path="/profile" component={Profile} />
-            <PrivateRoute exact path="/search" component={Search} />
+            <Route exact path="/search" component={Search} />
           </Suspense>
         </Switch>
       </AuthProvider>
