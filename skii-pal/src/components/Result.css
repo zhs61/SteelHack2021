@@ -34,6 +34,15 @@ h4 a:visited {
   line-height: normal;
   overflow: hidden;
 }
+
+.green {
+  color: green;
+}
+
+.red{
+  color: red;
+}
+
 .title {
   color: #ffa500;
   max-width: 22vw;
@@ -121,13 +130,6 @@ h4 {
     height: 174px;
   }
 
-  .green {
-    color: green;
-  }
-
-  .red{
-    color: red;
-  }
 
   .bottom{
     display: 'flex';
